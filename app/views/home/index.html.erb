@@ -5,6 +5,8 @@
     });
   </script>
 <% end %>
+
+<center> <h1>The Baskets Group </h1></center>
 <h2>Products</h2>
 
 <ul>
@@ -14,11 +16,6 @@
 </ul>
 <h2>Orders</h2>
 
-<ul>
-  <% @orders.each do |order| %>
-    <li><%= link_to order.orderNumber, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %></li>
-  <% end %>
-</ul>
 
 <hr>
 
