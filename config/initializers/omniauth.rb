@@ -7,6 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
              strategy = env['omniauth.strategy']
 
              shopify_auth_params = strategy.session['shopify.omniauth_params']&.with_indifferent_access
+             redirect_uri = 'https://test-project-app.herokuapp.com/auth/shopify/callback/'
              shop = if shopify_auth_params.present?
                "https://#{shopify_auth_params[:shop]}"
              else
@@ -15,5 +16,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
              strategy.options[:client_options][:site] = shop
            }
-           redirect_uri = 'https://test-project-app.herokuapp.com/auth/shopify/callback/'
+
 end
