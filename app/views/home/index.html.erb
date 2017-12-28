@@ -7,36 +7,71 @@
 <% end %>
 <style type="text/css">
   
-  table, th, td {
+  table, tr, th, td {
     text-align: left;
-    border: 1px solid black;
-    width: auto;
-    margin: auto;
+    border-color: transparent;
+    border-bottom: gray;
+    
+    
+  
 }
+
+.table-css{
+    background-color: white;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 10px;
+
+}
+
 
 table, th{
   text-align: center;
     border-collapse: collapse;
+    font-family: Open Sans;
+}
+
+.circle_fraud {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px; 
+    background-color: red;
+    border-radius: transperant; 
+  /* width and height can be anything, as long as they're equal */
+}
+
+.circle_non_fraud {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px; 
+    background-color: green;
+    border-radius: transperant; 
+  /* width and height can be anything, as long as they're equal */
 }
 
 </style>
 <center> <h1>The Baskets Group </h1></center>
-
  
-<h2>Orders</h2>
+ <div class="table-css">
+ 
 <table >
   
   <tbody >
-    <tr ><th style="width: 50px; padding: 20px;">Select </th><th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th></tr>
+    <tr style="border-bottom-style: solid;">
+
+      <!-- <th >Select </th> -->
+      <th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th><th style="width: 100px; padding: 20px;">Fraud Check</th></tr>
 
   <% @orders.each do |o| %>
-   <tr>   
-     <td> <input type="checkbox" name="vehicle" value="https://#{@shop_session.url}/admin/products/#{product.id}"> </td> 
-     <td> <%= link_to o.order_number, "https://#{@shop_session.url}/admin/orders/#{o.id}", target: "_top" %> </td>
+
+   <tr> 
+
+     <!-- <td> <input type="checkbox" name="vehicle" value="https://#{@shop_session.url}/admin/products/#{product.id}"> </td>  -->
+     <td style="text-align: left; padding-left: 20px;"> <%= link_to o.order_number, "https://#{@shop_session.url}/admin/orders/#{o.id}", target: "_top" %> </td>
 
           
      <td>$ <%=  o.total_price %> </td>
-     <td> <%=   o.tags %> </td>
+     <td style="text-align: left; padding-left: 50px;"> <%=   o.tags %> </td>
     
          
         <td>
@@ -49,9 +84,21 @@ table, th{
     <% end %>
       </td>  
 
+ 
+  <td>
+    
+    <% if o.tags.include?  "ufc"%>
+       
+      <div class="circle_fraud"></div>
+    <% else %>
+    <div class="circle_non_fraud"></div>
+     
+<% end %>
+  </td> 
 
-      
-  </tr
+
+
+  </tr>
 
    
   <% end %>
@@ -59,7 +106,9 @@ table, th{
     
 </ul>
  
- 
+ </tbody>
+</table>
+</div>
  
 <!-- 
   <h2>Webhooks</h2>
