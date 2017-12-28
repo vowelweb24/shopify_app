@@ -11,6 +11,7 @@
     text-align: left;
     border: 1px solid black;
     width: auto;
+    margin: auto;
 }
 
 table, th{
@@ -26,7 +27,7 @@ table, th{
 <table >
   
   <tbody >
-    <tr ><th>Sr.No </th><th style="width: 200px;">Order Number </th><th>Total Ammount </th><th>Tags</th> <th>Fulfillment Status</th></tr>
+    <tr ><th style="width: 50px; padding: 20px;">Select </th><th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th></tr>
 
   <% @orders.each do |o| %>
    <tr>   
@@ -34,7 +35,7 @@ table, th{
      <td> <%= link_to o.order_number, "https://#{@shop_session.url}/admin/orders/#{o.id}", target: "_top" %> </td>
 
           
-     <td> <%=  o.total_price %> </td>
+     <td>$ <%=  o.total_price %> </td>
      <td> <%=   o.tags %> </td>
     
          
@@ -48,7 +49,7 @@ table, th{
     <% end %>
       </td>  
 
-    
+
       
   </tr
 
