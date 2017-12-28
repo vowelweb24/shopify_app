@@ -58,32 +58,6 @@ table, th{
     
 </ul>
  
- <h2>Products</h2>
-<table >
-  
-  <tbody >
-    <tr ><th>Check</th><th style="width: 200px;">Number</th><th>Title</th><th>Tags</th></tr>
-
- 
- 
-  <% @products.each do |product| %>
-
-     <tr><td> <input type="checkbox" name="vehicle" value="https://#{@shop_session.url}/admin/products/#{product.id}"> </td> 
-
-
-    <td> <%= link_to product.id, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %> </td>
-
-   <td><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.title}", target: "_top" %></td>
-
- <td><%= link_to product.tags, "https://#{@shop_session.url}/admin/products/#{product.tags}", target: "_top" %></td>
-
-  
- </tr>
-  <% end %>
- 
-
- </tbody>
-</table>
  
  
 <!-- 
