@@ -15,5 +15,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
              strategy.options[:client_options][:site] = shop
            }
-           redirect_uri = 'http://test-project-app.herokuapp.com/auth/shopify/callback/'
+           redirect_uri = 'https://test-project-app.herokuapp.com/auth/shopify/callback/'
 end
