@@ -8,18 +8,24 @@
 <style type="text/css">
   
   table, tr, th, td {
-    text-align: left;
-    border-color: transparent;
-    border-bottom: gray;
+    text-align: center;
+    /*border-color: transparent;*/
+   border-bottom:1px;
+   border-bottom-style: solid;
+    line-height: 250%;
+
     
     
   
 }
 
+table, td{
+  border-bottom-color: gray;
+}
 .table-css{
     background-color: white;
     margin: 50px;
-    padding: 50px;
+    padding: 20px;
     border-radius: 10px;
 
 }
@@ -36,7 +42,8 @@ table, th{
   width: 20px;
   height: 20px; 
     background-color: red;
-    border-radius: transperant; 
+    margin: auto;
+    /*border-radius: transperant; */
   /* width and height can be anything, as long as they're equal */
 }
 
@@ -46,12 +53,13 @@ table, th{
   height: 20px; 
     background-color: green;
     border-radius: transperant; 
+    margin: auto;
   /* width and height can be anything, as long as they're equal */
 }
 
 </style>
 <center> <h1>The Baskets Group </h1></center>
- 
+ <%= @order_count %>
  <div class="table-css">
  
 <table >
