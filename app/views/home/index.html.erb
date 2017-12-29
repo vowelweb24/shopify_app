@@ -138,15 +138,9 @@ table, th{
   </td>
 <td>
     
-    <% if o.status.include?  "open"%>
+    <%= o.status.%>
        
-      <div class="circle_red"></div>
-    <% elsif o.status.include?  "closed" %>
-    <div class="circle_green"></div>
-    <%else%>
-    <div class="circle_yellow"></div>
-     
-      <% end %>
+    
   </td>
  
 
