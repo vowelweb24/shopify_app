@@ -67,6 +67,16 @@ table, th{
   /* width and height can be anything, as long as they're equal */
 }
 
+.circle_blue {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px; 
+    background-color: blue;
+    border-radius: transperant; 
+    margin: auto;
+  /* width and height can be anything, as long as they're equal */
+}
+
 </style>
 <center> <h1 style="font-family: Arial;">Hazelton's | Canada - Orders </h1></center>
 
@@ -124,7 +134,22 @@ table, th{
     <%else%>
     <div class="circle_yellow"></div>
      
-<% end %>
+      <% end %>
+  </td>
+
+  <td>
+    
+    <% if o.status.include?  "closed"%>
+       
+      <div class="circle_red"></div>
+    <% elsif o.status.include?  "open" %>
+    <div class="circle_green"></div>
+    <% elsif o.status.include?  "cancelled" %>
+    <div class="circle_blue"></div>
+    <%else%>
+    <div class="circle_yellow"></div>
+     
+      <% end %>
   </td> 
 
   </tr>
