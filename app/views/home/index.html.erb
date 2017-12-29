@@ -88,14 +88,14 @@ table, th{
     <tr style="border-bottom-style: solid;">
 
       <!-- <th >Select </th> -->
-      <th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th><th style="width: 100px; padding: 20px;">Fraud</th><th style="width: 100px; padding: 20px;">Paid</th><th style="width: 100px; padding: 20px;">Open</th></tr>
+      <th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th><th style="width: 100px; padding: 20px;">Fraud</th><th style="width: 100px; padding: 20px;">Paid</th><th style="width: 100px; padding: 20px;">Note</th></tr>
 
   <% @orders.each do |o| %>
 
    <tr> 
 
      <!-- <td> <input type="checkbox" name="vehicle" value="https://#{@shop_session.url}/admin/products/#{product.id}"> </td>  -->
-     <td style="text-align: left; padding-left: 20px; style="text-decoration: none; border-bottom: 1px solid white;"">  <%= link_to o.order_number, "https://#{@shop_session.url}/admin/orders/#{o.id}", target: "_blank" %> </td>
+     <td style="text-align: left; padding-left: 20px; ">  <%= link_to o.order_number, "https://#{@shop_session.url}/admin/orders/#{o.id}", target: "_blank" %> </td>
 
           
      <td>$ <%=  o.total_price %> </td>
@@ -112,7 +112,6 @@ table, th{
     <% end %>
       </td>  
 
- 
   <td>
     
     <% if o.tags.include?  "ufc"%>
@@ -138,7 +137,12 @@ table, th{
   </td>
 <td>
     
-    
+    <% if o.note != ""%>
+       <div class="circle_green"></div>
+     <% else %>
+     
+    <div class="circle_red"></div> 
+ <% end %>
        
     
   </td>
