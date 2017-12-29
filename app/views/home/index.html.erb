@@ -34,10 +34,10 @@ table, td{
 table, th{
   text-align: center;
     border-collapse: collapse;
-    font-family: Open Sans;
+    font-family: Arial;
 }
 
-.circle_fraud {
+.circle_red {
   border-radius: 50%;
   width: 20px;
   height: 20px; 
@@ -47,7 +47,7 @@ table, th{
   /* width and height can be anything, as long as they're equal */
 }
 
-.circle_non_fraud {
+.circle_green {
   border-radius: 50%;
   width: 20px;
   height: 20px; 
@@ -68,7 +68,7 @@ table, th{
     <tr style="border-bottom-style: solid;">
 
       <!-- <th >Select </th> -->
-      <th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th><th style="width: 100px; padding: 20px;">Fraud Check</th></tr>
+      <th style="width: 100px; margin-left:20px;">Order </th><th style=" padding: 20px;">Total </th><th style=" padding: 20px;">Tags</th> <th style="width: 100px; padding: 20px;">Fulfillment</th><th style="width: 100px; padding: 20px;">Fraud</th></tr>
 
   <% @orders.each do |o| %>
 
@@ -84,10 +84,10 @@ table, th{
          
         <td>
       <% if o.fulfillment_status == "fulfilled"%>
-       <%=  o.fulfillment_status %> 
+       <div class="circle_green"></div>
      <% else %>
      
-    <%= "Not fulfilled" %> 
+    <div class="circle_red"></div> 
     
     <% end %>
       </td>  
@@ -97,9 +97,9 @@ table, th{
     
     <% if o.tags.include?  "ufc"%>
        
-      <div class="circle_fraud"></div>
+      <div class="circle_red"></div>
     <% else %>
-    <div class="circle_non_fraud"></div>
+    <div class="circle_green"></div>
      
 <% end %>
   </td> 
